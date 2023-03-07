@@ -223,8 +223,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb578550bc4f824e97f0a72eac1f3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 776250384}
   mouseSensitivity: 100
+  gamepadSensitivity: 10
   playerBody: {fileID: 738646681744756156}
+  invertYAxis: 0
+  minAngle: -90
+  maxAngle: 90
 --- !u!1 &738646681744756154
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +280,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.3
   m_SlopeLimit: 45
-  m_StepOffset: 0.7
+  m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -299,6 +304,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  moveSmoothTime: 0.2
 --- !u!114 &776250384
 MonoBehaviour:
   m_ObjectHideFlags: 0
