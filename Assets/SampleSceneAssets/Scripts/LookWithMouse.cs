@@ -7,7 +7,9 @@ public class LookWithMouse : MonoBehaviour
 {
     const float k_MouseSensitivityMultiplier = 0.01f;
 
+    [SerializeField] private PlayerInput playerInput;
     public float mouseSensitivity = 100f;
+    public float gamepadSensitivity = 100f;
 
     public Transform playerBody;
 
@@ -49,8 +51,16 @@ public class LookWithMouse : MonoBehaviour
             unlockPressed = Keyboard.current.escapeKey.wasPressedThisFrame;
         }
 
-        mouseX *= mouseSensitivity * k_MouseSensitivityMultiplier;
-        mouseY *= mouseSensitivity * k_MouseSensitivityMultiplier;
+        if (playerInput.currentControlScheme == "Controller")
+        {
+            mouseX *= gamepadSensitivity * k_MouseSensitivityMultiplier;
+            mouseY *= gamepadSensitivity * k_MouseSensitivityMultiplier;
+        }
+        else
+        {
+            mouseX *= mouseSensitivity * k_MouseSensitivityMultiplier;
+            mouseY *= mouseSensitivity * k_MouseSensitivityMultiplier;
+        }
 
         if (unlockPressed)
         {

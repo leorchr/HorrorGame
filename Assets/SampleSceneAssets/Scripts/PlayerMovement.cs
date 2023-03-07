@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    Vector3 velocity;
+    private Vector3 velocity;
+    private Vector3 currentMoveVelocity;
+    private Vector3 moveDampVelocity;
+    public float moveSmoothTime = 0.2f;
     bool isGrounded;
 
     Vector2 movement;
@@ -31,11 +34,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
+        currentMoveVelocity = Vector3.SmoothDamp(
+            currentMoveVelocity,
+            move * speed,
+            ref moveDampVelocity,
+            moveSmoothTime);
+        controller.Move(currentMoveVelocity * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
     }
 
