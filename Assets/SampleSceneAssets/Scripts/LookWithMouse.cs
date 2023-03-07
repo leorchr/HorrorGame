@@ -1,7 +1,4 @@
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,19 +13,22 @@ public class LookWithMouse : MonoBehaviour
 
     float xRotation = 0f;
 
-    // Start is called before the first frame update
+    [SerializeField] private bool invertYAxis;
+    [SerializeField][Range(-90.0f, 0)] private float minAngle = -90f;
+    [SerializeField][Range(0, 90.0f)] private float maxAngle = 90f;
+
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         bool unlockPressed = false, lockPressed = false;
 
-#if ENABLE_INPUT_SYSTEM
         float mouseX = 0, mouseY = 0;
 
         if (Mouse.current != null)
@@ -51,13 +51,6 @@ public class LookWithMouse : MonoBehaviour
 
         mouseX *= mouseSensitivity * k_MouseSensitivityMultiplier;
         mouseY *= mouseSensitivity * k_MouseSensitivityMultiplier;
-#else
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * k_MouseSensitivityMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * k_MouseSensitivityMultiplier;
-
-        unlockPressed = Input.GetKeyDown(KeyCode.Escape);
-        lockPressed = Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1);
-#endif
 
         if (unlockPressed)
         {
@@ -73,9 +66,10 @@ public class LookWithMouse : MonoBehaviour
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, minAngle, maxAngle);
 
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            int invertAxis = invertYAxis ? -1 : 1;
+            transform.localRotation = Quaternion.Euler(invertAxis*xRotation, 0f, 0f);
 
             playerBody.Rotate(Vector3.up * mouseX);
         }
