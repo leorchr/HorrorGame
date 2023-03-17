@@ -123,10 +123,10 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   intensity:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.475
   scatter:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.714
   tint:
     m_OverrideState: 0
