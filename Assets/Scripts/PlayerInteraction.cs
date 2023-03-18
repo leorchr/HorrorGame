@@ -73,6 +73,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             _possiblePickable = other.GetComponent<Pickable>();
             SetInteraction(InteractionType.Pickup);
+            other.GetComponent<InteractiveUI>().currentState = State.CanInteract;
         }
         else if (other.transform.CompareTag("Interactive"))
         {
@@ -80,6 +81,7 @@ public class PlayerInteraction : MonoBehaviour
             if(interactive == null) return;
             _possibleInteractive = interactive;
             SetInteraction(_possibleInteractive.interactionType);
+            other.GetComponent<InteractiveUI>().currentState = State.CanInteract;
         }
     }
 
@@ -88,6 +90,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.transform.CompareTag("Pickable") || other.transform.CompareTag("Interactive"))
         {
             StopInteractive();
+            other.GetComponent<InteractiveUI>().currentState = State.CanSeePossibleInteraction;
         }
     }
 
@@ -100,6 +103,7 @@ public class PlayerInteraction : MonoBehaviour
     private void DisableInteractive()
     {
         _possibleInteractive.GetComponent<SphereCollider>().enabled = false;
+        Destroy(_possibleInteractive.gameObject.GetComponent<InteractiveUI>());
         Destroy(_possibleInteractive);
         SetInteraction(InteractionType.None);
     }

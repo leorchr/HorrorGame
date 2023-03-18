@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     public CharacterController controller;
 
     public float speed = 5f;
@@ -21,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     Vector2 movement;
+    private void Awake()
+    {
+        if (Instance) Destroy(this);
+        else Instance = this;
+    }
 
     void Update()
     {

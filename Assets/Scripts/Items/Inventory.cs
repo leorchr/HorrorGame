@@ -12,7 +12,8 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance) Destroy(this);
+        else Instance = this;
     }
 
     public void RemoveFromInventory(ItemData qItem, int quantity = 0)
