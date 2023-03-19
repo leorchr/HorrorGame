@@ -1658,7 +1658,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-233666
+  m_Name: pb_Mesh-10978
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1913,7 +1913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &523815082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,7 +1943,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: 0, y: 0, z: 0}
+    textureOffset: {x: -0, y: -0, z: -0}
     falloffMode: 0
   m_Version: 2
 --- !u!4 &523815083
@@ -6024,9 +6024,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1341a0db16e1c314ea42d1a158c31f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
   visibleInteractionDist: 5
   interactionUIPos: {fileID: 83645419}
+  currentState: 0
+  visualDebugging: 1
+  sphereColor: {r: 0.2, g: 0.75, b: 0.2, a: 0.15}
 --- !u!114 &1771739980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6350,7 +6352,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-233646
+  m_Name: pb_Mesh-2266
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6515,7 +6517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-232466
+  m_Name: pb_Mesh-9320
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
