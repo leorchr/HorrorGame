@@ -20,7 +20,7 @@ public class InteractiveUI : MonoBehaviour
     [SerializeField] private Transform interactionUIPos;
 
     [HideInInspector] public State currentState;
-    private float dist, dotStartScale, interactionStartScale;
+    private float dist, startScale;
     private GameObject cam;
     private GameObject dot, interaction;
 
@@ -42,8 +42,7 @@ public class InteractiveUI : MonoBehaviour
         dot.SetActive(false);
         interaction.SetActive(false);
         currentState = State.CantInteract;
-        dotStartScale = dot.transform.localScale.x;
-        interactionStartScale = interaction.transform.localScale.x;
+        startScale = dot.transform.localScale.x;
     }
 
     private void Update()
@@ -65,7 +64,7 @@ public class InteractiveUI : MonoBehaviour
                 interaction.SetActive(true);
                 interaction.transform.LookAt(cam.transform.position);
                 interaction.transform.Rotate(new Vector3(90, 0, 0));
-                float interactionScale = interactionStartScale * dist * 0.5f;
+                float interactionScale = startScale * dist * 0.8f;
                 interaction.transform.localScale = new Vector3(interactionScale, interactionScale, interactionScale);
                 break;
 
@@ -74,7 +73,7 @@ public class InteractiveUI : MonoBehaviour
                 interaction.SetActive(false);
                 dot.transform.LookAt(cam.transform.position);
                 dot.transform.Rotate(new Vector3(90, 0, 0));
-                float dotScale = dotStartScale * dist * 0.5f;
+                float dotScale = startScale * dist * 0.8f;
                 dot.transform.localScale = new Vector3(dotScale, dotScale, dotScale);
                 break;
 
