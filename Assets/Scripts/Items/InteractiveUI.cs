@@ -64,7 +64,7 @@ public class InteractiveUI : MonoBehaviour
                 interaction.SetActive(true);
                 interaction.transform.LookAt(cam.transform.position);
                 interaction.transform.Rotate(new Vector3(90, 0, 0));
-                float interactionScale = startScale * dist * 0.8f;
+                float interactionScale = startScale * dist * 0.5f;
                 interaction.transform.localScale = new Vector3(interactionScale, interactionScale, interactionScale);
                 break;
 
@@ -73,7 +73,7 @@ public class InteractiveUI : MonoBehaviour
                 interaction.SetActive(false);
                 dot.transform.LookAt(cam.transform.position);
                 dot.transform.Rotate(new Vector3(90, 0, 0));
-                float dotScale = startScale * dist * 0.8f;
+                float dotScale = startScale * dist * 0.5f;
                 dot.transform.localScale = new Vector3(dotScale, dotScale, dotScale);
                 break;
 
