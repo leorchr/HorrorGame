@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using TreeEditor;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public enum State
@@ -13,14 +14,25 @@ public enum State
 
 public class InteractiveUI : MonoBehaviour
 {
-    [HideInInspector] public State currentState;
-
-    private float dist, dotStartScale, interactionStartScale;
+    #region UI Setup
+    [Header("===== UI Setup =====")]
     [SerializeField] private float visibleInteractionDist = 5f;
     [SerializeField] private Transform interactionUIPos;
 
+    [HideInInspector] public State currentState;
+    private float dist, dotStartScale, interactionStartScale;
     private GameObject cam;
     private GameObject dot, interaction;
+
+    #endregion
+
+    #region Debug
+
+    [Header("===== Debug =====")]
+    [SerializeField] private bool visualDebugging = true;
+    [SerializeField] private Color sphereColor = new Color(0.2f, 0.75f, 0.2f, 0.15f);
+
+    #endregion
 
     private void Start()
     {
@@ -72,6 +84,15 @@ public class InteractiveUI : MonoBehaviour
                 break;
         }
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmosSelected()
+    {
+        if (!visualDebugging) return;
+        Handles.color = sphereColor;
+        Handles.RadiusHandle(Quaternion.identity, interactionUIPos.position, visibleInteractionDist);
+    }
+#endif
 
     private void OnDestroy()
     {
