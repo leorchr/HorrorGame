@@ -1658,7 +1658,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10978
+  m_Name: pb_Mesh-1504
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3205,7 +3205,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf8979f8d594fea4797e452601652427, type: 2}
+  - {fileID: 2100000, guid: b9229bd79b5265144b4b356915c17864, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6352,7 +6352,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2266
+  m_Name: pb_Mesh-2004
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6517,7 +6517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9320
+  m_Name: pb_Mesh-9290
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6988,6 +6988,10 @@ PrefabInstance:
     - target: {fileID: 5079297416533535103, guid: 6feca6fb7721ccd4db617bdd6e3030ba, type: 3}
       propertyPath: m_Name
       value: Chair AirPord (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079297416533535103, guid: 6feca6fb7721ccd4db617bdd6e3030ba, type: 3}
+      propertyPath: m_TagString
+      value: Interactive
       objectReference: {fileID: 0}
     - target: {fileID: 5563804514789241797, guid: 6feca6fb7721ccd4db617bdd6e3030ba, type: 3}
       propertyPath: m_RootOrder
