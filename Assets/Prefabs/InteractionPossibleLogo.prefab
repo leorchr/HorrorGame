@@ -178,4 +178,4 @@ MonoBehaviour:
   sampleCount: 32
   occlusionOffset: 0.05
   scale: 0.2
-  allowOffScreen: 1
+  allowOffScreen: 0
